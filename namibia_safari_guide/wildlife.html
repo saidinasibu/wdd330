@@ -3,36 +3,42 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Namibia Wildlife</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Namibia Safari - Wildlife Guide</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
+
     <header>
-        <h1>Namibian Wildlife</h1>
         <nav>
-            <ul>
+            <ul class="main-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="wildlife.html" class="active">Wildlife</a></li>
+                <li><a href="wildlife.html" class="active">Wildlife Guide</a></li>
                 <li><a href="travel.html">Travel Info</a></li>
             </ul>
         </nav>
+        <h1>Namibian Wildlife Guide</h1>
+        <p>Discover Namibia’s iconic animals and the parks where you can see them.</p>
     </header>
 
     <main>
-        <section id="wildlife-container">
-            <h2>Explore the Animals of Namibia</h2>
-            <p>Below are some animals you may encounter on your safari:</p>
-            <div id="animal-list"></div>
+        <section id="animals_section" class="cards_section">
+            <h2>Namibian Wildlife</h2>
+            <div id="animal_cards" class="cards_container"></div>
+        </section>
+
+        <section id="parks_section" class="cards_section">
+            <h2>National Parks</h2>
+            <div id="park_cards" class="cards_container"></div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Namibia Safari. All rights reserved.</p>
+        <p>© 2025 Namibia Safari - All rights reserved.</p>
     </footer>
 
-    <script src="wildlife.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

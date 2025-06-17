@@ -3,58 +3,51 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Info</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Namibia Safari - Travel Info</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
+
     <header>
-        <h1>Travel Information</h1>
         <nav>
-            <ul>
+            <ul class="main-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="wildlife.html">Wildlife</a></li>
+                <li><a href="wildlife.html">Wildlife Guide</a></li>
                 <li><a href="travel.html" class="active">Travel Info</a></li>
             </ul>
         </nav>
+        <h1>Practical Travel Information for Namibia</h1>
     </header>
 
     <main>
         <section>
-            <h2>Plan Your Safari Trip</h2>
-            <p>Below is a simple overview of distances between some major locations in Namibia:</p>
-            <ul>
-                <li>Windhoek to Etosha National Park: ~435 km</li>
-                <li>Windhoek to Swakopmund: ~360 km</li>
-                <li>Etosha to Damaraland: ~230 km</li>
-            </ul>
+            <h2>Languages Spoken</h2>
+            <p>Namibia’s official language is English, but Afrikaans and various indigenous languages like Oshiwambo are
+                widely spoken.</p>
+        </section>
 
-            <h3>Useful Phrases (Oshiwambo)</h3>
-            <ul>
-                <li>Hello - Wa uhala po</li>
-                <li>Thank you - Tangi unene</li>
-                <li>Where is the park? - Epi li shilongo?</li>
-            </ul>
+        <section>
+            <h2>Distances Between Parks</h2>
+            <p>Here is a map and a table showing distances between key national parks.</p>
+            <!-- Insert a map or Google Maps iframe here -->
+        </section>
 
-            <h3>Map</h3>
-            <div id="map" style="height: 400px;"></div>
+        <section>
+            <h2>Safety Tips</h2>
+            <ul>
+                <li>Respect park rules and wildlife safety guidelines.</li>
+                <li>Carry enough water and sun protection.</li>
+                <li>Travel with an experienced guide for desert safaris.</li>
+            </ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Namibia Safari. All rights reserved.</p>
+        <p>© 2025 Namibia Safari - All rights reserved.</p>
     </footer>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        const map = L.map('map').setView([-22.57, 17.0836], 6);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        L.marker([-22.57, 17.0836]).addTo(map).bindPopup('Windhoek');
-        L.marker([-19.1833, 15.8833]).addTo(map).bindPopup('Etosha National Park');
-    </script>
 </body>
 
 </html>
