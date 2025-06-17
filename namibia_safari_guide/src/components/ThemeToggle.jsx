@@ -1,13 +1,14 @@
-import { useTheme } from '../context/ThemeContext';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 const ThemeToggle = () => {
-    const { darkMode, toggleTheme } = useTheme();
+    const { darkMode, toggleTheme } = useContext(ThemeContext);
 
     return (
         <button
             onClick={toggleTheme}
             className="p-2 rounded-full bg-tertiary text-secondary"
-            aria-label={darkMode ? 'Passer en mode clair' : 'Passer en mode sombre'}
+            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
         >
             {darkMode ? (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

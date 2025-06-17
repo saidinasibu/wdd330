@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
 const FavoritesContext = createContext();
 
@@ -32,7 +32,13 @@ export const FavoritesProvider = ({ children }) => {
 
     return (
         <FavoritesContext.Provider
-            value={{ favorites, addFavorite, removeFavorite, isFavorite }}
+            value={{
+                favorites,
+                addFavorite,
+                removeFavorite,
+                isFavorite,
+                totalFavorites: favorites.length
+            }}
         >
             {children}
         </FavoritesContext.Provider>

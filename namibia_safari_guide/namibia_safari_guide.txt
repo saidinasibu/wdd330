@@ -1,16 +1,30 @@
 namibia-safari-guide/
 ├── public/
-│   ├── images/
-│   ├── favicon.ico
-│   └── index.html
+│   ├── index.html
+│   └── favicon.ico
 ├── src/
-│   ├── assets/
 │   ├── components/
+│   │   ├── AnimalCard.jsx
+│   │   ├── DistanceCalculator.jsx
+│   │   ├── MapComponent.jsx
+│   │   ├── NavBar.jsx
+│   │   └── ThemeToggle.jsx
+│   ├── context/
+│   │   ├── ThemeContext.jsx
+│   │   └── FavoritesContext.jsx
 │   ├── pages/
+│   │   ├── HomePage.jsx
+│   │   ├── AnimalDetailPage.jsx
+│   │   └── PlannerPage.jsx
 │   ├── services/
+│   │   ├── wikipediaService.js
+│   │   └── mapsService.js
 │   ├── utils/
+│   │   └── helpers.js
 │   ├── App.jsx
-│   └── index.js
+│   ├── main.jsx
+│   └── index.css
 ├── .gitignore
 ├── package.json
+├── tailwind.config.js
 └── vite.config.js
