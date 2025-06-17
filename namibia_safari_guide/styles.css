@@ -1,0 +1,100 @@
+/* Base reset and body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header and Footer */
+header,
+footer {
+    background-color: #006e51;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #004d3a;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+}
+
+nav a.active {
+    text-decoration: underline;
+}
+
+/* Main content area */
+main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Animal cards */
+.animal-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.animal-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.animal-card h3 {
+    margin-top: 0.5rem;
+}
+
+/* Map container */
+#map {
+    height: 400px;
+    border: 2px solid #006e51;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* Footer spacing */
+footer {
+    margin-top: 2rem;
+}
+
+/* -------------------------- */
+/* Responsive Design (Mobile) */
+/* -------------------------- */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .animal-card {
+        padding: 1rem;
+    }
+}
