@@ -45,7 +45,7 @@ const animals = [
             Nama: "ǀNūǃkhub"
         },
         description: "The giraffe is an African artiodactyl mammal, the tallest living terrestrial animal and the largest ruminant. It is traditionally considered to be one species with nine subspecies.",
-        imageUrl: "https://images.unsplash.com/photo-1534188753410-8b1d4a0e1c1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1692095296972-bfb7d7f6625e?q=80&w=327&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         funFacts: [
             "Giraffes are the tallest mammals on Earth.",
             "A giraffe's neck is too short to reach the ground, so they must spread their front legs to drink water.",
@@ -63,7 +63,7 @@ const animals = [
             Nama: "ǃGaiseb"
         },
         description: "Zebras are African equines with distinctive black-and-white striped coats. There are three living species: the Grévy's zebra, plains zebra, and the mountain zebra.",
-        imageUrl: "https://images.unsplash.com/photo-1598182198871-d3f4ab4fd181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        imageUrl: "https://plus.unsplash.com/premium_photo-1661918416083-518059a355c8?q=80&w=389&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         funFacts: [
             "Each zebra has a unique stripe pattern—like human fingerprints.",
             "Zebras can run up to 65 km/h (40 mph) to escape predators.",
