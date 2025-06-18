@@ -2,39 +2,98 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Namibia Safari - Home</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namibia Safari Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places,geometry"></script>
 </head>
 
 <body>
-
+    <!-- Header -->
     <header>
-        <nav>
-            <ul class="main-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="wildlife.html">Wildlife Guide</a></li>
-                <li><a href="travel.html">Travel Info</a></li>
-            </ul>
-        </nav>
-        <h1>Welcome to Namibia Safari</h1>
-        <p>Discover Namibia’s natural beauty, national parks, wildlife, and useful travel tips.</p>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-paw"></i>
+                <h1>Namibia Safari Guide</h1>
+            </div>
+
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#" class="nav-link active" data-target="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-target="animals">Animals</a></li>
+                    <li><a href="#" class="nav-link" data-target="parks">National Parks</a></li>
+                    <li><a href="#" class="nav-link" data-target="planner">Trip Planner</a></li>
+                    <li><a href="#" class="nav-link" data-target="favorites">Favorites</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <div class="weather-widget">
+                    <i class="fas fa-sun"></i>
+                    <span id="temp">24°C</span>
+                </div>
+                <button class="theme-switch" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section>
-            <h2>Introduction to Namibia Safaris</h2>
-            <p>Namibia is an incredible destination for nature lovers and adventurers. Our national parks are home to
-                amazing animals adapted to the desert landscapes.</p>
-            <p>Explore our site to learn more about the wildlife, parks, and travel advice.</p>
-        </section>
-    </main>
+    <!-- Pages will be loaded here -->
+    <main id="page-content"></main>
 
+    <!-- Footer -->
     <footer>
-        <p>© 2025 Namibia Safari - All rights reserved.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Namibia Safari Guide</h3>
+                    <p>Your ultimate companion for exploring Namibia's incredible wildlife and national parks.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/saidinasibu" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/davidnasibu/" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-target="home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#" data-target="animals"><i class="fas fa-paw"></i> Animals</a></li>
+                        <li><a href="#" data-target="parks"><i class="fas fa-tree"></i> National Parks</a></li>
+                        <li><a href="#" data-target="planner"><i class="fas fa-route"></i> Trip Planner</a></li>
+                        <li><a href="#" data-target="favorites"><i class="fas fa-heart"></i> Favorites</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@safariguide.na"><i class="fas fa-envelope"></i> info@safariguide.na</a>
+                        </li>
+                        <li><a href="tel:+264611234567"><i class="fas fa-phone"></i> +264 61 123 4567</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Windhoek, Namibia</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 Namibia Safari Guide. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="data.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

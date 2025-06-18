@@ -1,0 +1,170 @@
+// Sample animal data
+const animals = [
+    {
+        id: 1,
+        name: "Lion",
+        localNames: {
+            Oshiwambo: "Shimbulu",
+            Otjiherero: "Tjimbare",
+            Nama: "Khob"
+        },
+        description: "The lion is a large cat of the genus Panthera native to Africa and India. It has a muscular, broad-chested body; short, rounded head; round ears; and a hairy tuft at the end of its tail. It is sexually dimorphic; adult male lions are larger than females and have a prominent mane.",
+        imageUrl: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        funFacts: [
+            "Lions are the only cats that live in groups.",
+            "A lion's roar can be heard up to 8 kilometers away.",
+            "Male lions defend the pride's territory while females do most of the hunting.",
+            "Lions spend about 16-20 hours each day resting."
+        ],
+        parks: ["Etosha National Park", "Waterberg Plateau Park"]
+    },
+    {
+        id: 2,
+        name: "Elephant",
+        localNames: {
+            Oshiwambo: "Ondjamba",
+            Otjiherero: "Ezohambo",
+            Nama: "ǂGûb"
+        },
+        description: "African elephants are the largest land animals on Earth. They are slightly larger than their Asian cousins and can be identified by their larger ears that look somewhat like the continent of Africa.",
+        imageUrl: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        funFacts: [
+            "Elephants can consume up to 300 pounds of food in a single day.",
+            "An elephant's trunk has about 150,000 muscle units.",
+            "Elephants have a highly developed brain and the largest of all the land mammals.",
+            "Elephants communicate over long distances using low-frequency sounds."
+        ],
+        parks: ["Etosha National Park", "Namib-Naukluft National Park"]
+    },
+    {
+        id: 3,
+        name: "Giraffe",
+        localNames: {
+            Oshiwambo: "Onduli",
+            Otjiherero: "Ozongombe",
+            Nama: "ǀNūǃkhub"
+        },
+        description: "The giraffe is an African artiodactyl mammal, the tallest living terrestrial animal and the largest ruminant. It is traditionally considered to be one species with nine subspecies.",
+        imageUrl: "https://images.unsplash.com/photo-1534188753410-8b1d4a0e1c1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        funFacts: [
+            "Giraffes are the tallest mammals on Earth.",
+            "A giraffe's neck is too short to reach the ground, so they must spread their front legs to drink water.",
+            "Giraffes only need 5 to 30 minutes of sleep in a 24-hour period.",
+            "Each giraffe has a unique pattern of spots."
+        ],
+        parks: ["Etosha National Park", "Waterberg Plateau Park"]
+    },
+    {
+        id: 4,
+        name: "Zebra",
+        localNames: {
+            Oshiwambo: "Ongolo",
+            Otjiherero: "Ongurue",
+            Nama: "ǃGaiseb"
+        },
+        description: "Zebras are African equines with distinctive black-and-white striped coats. There are three living species: the Grévy's zebra, plains zebra, and the mountain zebra.",
+        imageUrl: "https://images.unsplash.com/photo-1598182198871-d3f4ab4fd181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        funFacts: [
+            "Each zebra has a unique stripe pattern—like human fingerprints.",
+            "Zebras can run up to 65 km/h (40 mph) to escape predators.",
+            "A group of zebras is called a 'dazzle'.",
+            "Zebras sleep standing up and only when they are in groups."
+        ],
+        parks: ["Etosha National Park", "Namib-Naukluft National Park"]
+    },
+    {
+        id: 5,
+        name: "Cheetah",
+        localNames: {
+            Oshiwambo: "Etaka",
+            Otjiherero: "Ehi",
+            Nama: "ǃNūs"
+        },
+        description: "The cheetah is a large cat native to Africa and central Iran. It is the fastest land animal, capable of running at 80 to 128 km/h, and as such has several adaptations for speed.",
+        imageUrl: "https://images.unsplash.com/photo-1507692049790-de58290a4334?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        funFacts: [
+            "Cheetahs can accelerate from 0 to 100 km/h in just 3 seconds.",
+            "Cheetahs don't roar like lions—they purr like house cats.",
+            "The black 'tear marks' under their eyes help reduce glare from the sun.",
+            "Cheetahs are diurnal, hunting during the day to avoid competition with other predators."
+        ],
+        parks: ["Etosha National Park", "Skeleton Coast National Park"]
+    },
+    {
+        id: 6,
+        name: "Rhino",
+        localNames: {
+            Oshiwambo: "Ongulumbashe",
+            Otjiherero: "Ongombe",
+            Nama: "ǀGûb"
+        },
+        description: "A rhinoceros, commonly abbreviated to rhino, is a member of any of the five extant species of odd-toed ungulates in the family Rhinocerotidae.",
+        imageUrl: "https://images.unsplash.com/photo-1612195583959-4c1c7c1b1b1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        funFacts: [
+            "Rhinos have poor eyesight but excellent senses of hearing and smell.",
+            "A group of rhinos is called a 'crash'.",
+            "Rhino horns are made of keratin—the same material as human hair and nails.",
+            "White rhinos aren't white—the name comes from the Afrikaans word 'wyd' meaning wide."
+        ],
+        parks: ["Etosha National Park", "Waterberg Plateau Park"]
+    }
+];
+
+// Sample park data
+const parks = [
+    {
+        id: 1,
+        name: "Etosha National Park",
+        description: "One of Africa's great wildlife parks, centered around the vast Etosha salt pan. Home to hundreds of species of mammals, birds and reptiles.",
+        imageUrl: "https://images.unsplash.com/photo-1560258017886-1c5d9a6c8f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        location: "Northern Namibia",
+        hours: "Sunrise to Sunset",
+        contact: "+264 67 229 800",
+        size: "22,270 km²",
+        animals: ["Lion", "Elephant", "Giraffe", "Zebra", "Cheetah", "Rhino"]
+    },
+    {
+        id: 2,
+        name: "Namib-Naukluft National Park",
+        description: "One of Africa's largest parks, encompassing part of the Namib Desert and the Naukluft mountain range. Famous for Sossusvlei's towering red sand dunes.",
+        imageUrl: "https://images.unsplash.com/photo-1591196330390-05d1c23e6c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        location: "Western Namibia",
+        hours: "6:00 AM - 6:30 PM",
+        contact: "+264 63 293 436",
+        size: "49,768 km²",
+        animals: ["Oryx", "Springbok", "Ostrich", "Hyena", "Zebra"]
+    },
+    {
+        id: 3,
+        name: "Skeleton Coast National Park",
+        description: "Named for the whale and seal bones that once littered the shore from the whaling industry, and the hundreds of shipwrecks caused by the fog and rough seas.",
+        imageUrl: "https://images.unsplash.com/photo-1589800866251-1e6d9b1b1b1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        location: "Northwestern Namibia",
+        hours: "8:00 AM - 5:00 PM",
+        contact: "+264 64 403 100",
+        size: "16,390 km²",
+        animals: ["Desert Elephant", "Brown Hyena", "Jackal", "Seal", "Flamingo"]
+    },
+    {
+        id: 4,
+        name: "Waterberg Plateau Park",
+        description: "The Waterberg Plateau is a particularly prominent location, elevating high above the plains of the Kalahari of Eastern Namibia.",
+        imageUrl: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        location: "Eastern Namibia",
+        hours: "8:00 AM - 6:00 PM",
+        contact: "+264 67 306 000",
+        size: "405 km²",
+        animals: ["Rhino", "Buffalo", "Roan Antelope", "Sable Antelope", "Leopard"]
+    },
+    {
+        id: 5,
+        name: "Fish River Canyon Park",
+        description: "Fish River Canyon is the second largest canyon in the world and the largest in Africa, as well as the second most visited tourist attraction in Namibia.",
+        imageUrl: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        location: "Southern Namibia",
+        hours: "7:30 AM - 4:00 PM",
+        contact: "+264 63 283 700",
+        size: "5,900 km²",
+        animals: ["Mountain Zebra", "Kudu", "Klipspringer", "Baboon", "Leopard"]
+    }
+];
