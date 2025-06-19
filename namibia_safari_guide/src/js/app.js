@@ -182,14 +182,7 @@ const navMenu = document.getElementById('nav-menu');
 
 // Page templates
 const pageTemplates = {
-    home: `
-        <div class="hero">
-            <div class="hero-content">
-                <h2>Discover the Wildlife of Namibia</h2>
-                <p>Your ultimate guide to exploring Namibia's national parks and wildlife. Identify animals, plan your safari trip, and experience the beauty of Namibian nature.</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn" data-target="animals">Explore Animals</a>
-                    <a href="#" class="btn btn-secondary" data-target="planner">Plan Your Trip</a>
+    home: `               
                 </div>
             </div>
         </div>
