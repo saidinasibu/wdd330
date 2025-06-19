@@ -9,7 +9,7 @@ const animals = [
             Nama: "Khob"
         },
         description: "The lion is a large cat of the genus Panthera native to Africa and India. It has a muscular, broad-chested body; short, rounded head; round ears; and a hairy tuft at the end of its tail. It is sexually dimorphic; adult male lions are larger than females and have a prominent mane.",
-        imageUrl: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+        imageUrl: "images/lion.webp",
         funFacts: [
             "Lions are the only cats that live in groups.",
             "A lion's roar can be heard up to 8 kilometers away.",
