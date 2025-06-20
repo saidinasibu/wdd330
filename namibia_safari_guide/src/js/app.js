@@ -1,177 +1,8 @@
-// Sample animal data
-const animals = [
-    {
-        id: 1,
-        name: "Lion",
-        localNames: {
-            Oshiwambo: "Shimbulu",
-            Otjiherero: "Tjimbare",
-            Nama: "Khob"
-        },
-        description: "The lion is a large cat of the genus Panthera native to Africa and India. It has a muscular, broad-chested body; short, rounded head; round ears; and a hairy tuft at the end of its tail. It is sexually dimorphic; adult male lions are larger than females and have a prominent mane.",
-        imageUrl: "images/lion.webp",
-        funFacts: [
-            "Lions are the only cats that live in groups.",
-            "A lion's roar can be heard up to 8 kilometers away.",
-            "Male lions defend the pride's territory while females do most of the hunting.",
-            "Lions spend about 16-20 hours each day resting."
-        ],
-        parks: ["Etosha National Park", "Waterberg Plateau Park"]
-    },
-    {
-        id: 2,
-        name: "Elephant",
-        localNames: {
-            Oshiwambo: "Ondjamba",
-            Otjiherero: "Ezohambo",
-            Nama: "ǂGûb"
-        },
-        description: "African elephants are the largest land animals on Earth. They are slightly larger than their Asian cousins and can be identified by their larger ears that look somewhat like the continent of Africa.",
-        imageUrl: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-        funFacts: [
-            "Elephants can consume up to 300 pounds of food in a single day.",
-            "An elephant's trunk has about 150,000 muscle units.",
-            "Elephants have a highly developed brain and the largest of all the land mammals.",
-            "Elephants communicate over long distances using low-frequency sounds."
-        ],
-        parks: ["Etosha National Park", "Namib-Naukluft National Park"]
-    },
-    {
-        id: 3,
-        name: "Giraffe",
-        localNames: {
-            Oshiwambo: "Onduli",
-            Otjiherero: "Ozongombe",
-            Nama: "ǀNūǃkhub"
-        },
-        description: "The giraffe is an African artiodactyl mammal, the tallest living terrestrial animal and the largest ruminant. It is traditionally considered to be one species with nine subspecies.",
-        imageUrl: "https://images.unsplash.com/photo-1692095296972-bfb7d7f6625e?q=80&w=327&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        funFacts: [
-            "Giraffes are the tallest mammals on Earth.",
-            "A giraffe's neck is too short to reach the ground, so they must spread their front legs to drink water.",
-            "Giraffes only need 5 to 30 minutes of sleep in a 24-hour period.",
-            "Each giraffe has a unique pattern of spots."
-        ],
-        parks: ["Etosha National Park", "Waterberg Plateau Park"]
-    },
-    {
-        id: 4,
-        name: "Zebra",
-        localNames: {
-            Oshiwambo: "Ongolo",
-            Otjiherero: "Ongurue",
-            Nama: "ǃGaiseb"
-        },
-        description: "Zebras are African equines with distinctive black-and-white striped coats. There are three living species: the Grévy's zebra, plains zebra, and the mountain zebra.",
-        imageUrl: "https://plus.unsplash.com/premium_photo-1661918416083-518059a355c8?q=80&w=389&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        funFacts: [
-            "Each zebra has a unique stripe pattern—like human fingerprints.",
-            "Zebras can run up to 65 km/h (40 mph) to escape predators.",
-            "A group of zebras is called a 'dazzle'.",
-            "Zebras sleep standing up and only when they are in groups."
-        ],
-        parks: ["Etosha National Park", "Namib-Naukluft National Park"]
-    },
-    {
-        id: 5,
-        name: "Cheetah",
-        localNames: {
-            Oshiwambo: "Etaka",
-            Otjiherero: "Ehi",
-            Nama: "ǃNūs"
-        },
-        description: "The cheetah is a large cat native to Africa and central Iran. It is the fastest land animal, capable of running at 80 to 128 km/h, and as such has several adaptations for speed.",
-        imageUrl: "https://images.unsplash.com/photo-1559537196-811a53462ffc?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        funFacts: [
-            "Cheetahs can accelerate from 0 to 100 km/h in just 3 seconds.",
-            "Cheetahs don't roar like lions—they purr like house cats.",
-            "The black 'tear marks' under their eyes help reduce glare from the sun.",
-            "Cheetahs are diurnal, hunting during the day to avoid competition with other predators."
-        ],
-        parks: ["Etosha National Park", "Skeleton Coast National Park"]
-    },
-    {
-        id: 6,
-        name: "Rhino",
-        localNames: {
-            Oshiwambo: "Ongulumbashe",
-            Otjiherero: "Ongombe",
-            Nama: "ǀGûb"
-        },
-        description: "A rhinoceros, commonly abbreviated to rhino, is a member of any of the five extant species of odd-toed ungulates in the family Rhinocerotidae.",
-        imageUrl: "https://plus.unsplash.com/premium_photo-1661849675370-3852cfa61f1a?q=80&w=386&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        funFacts: [
-            "Rhinos have poor eyesight but excellent senses of hearing and smell.",
-            "A group of rhinos is called a 'crash'.",
-            "Rhino horns are made of keratin—the same material as human hair and nails.",
-            "White rhinos aren't white—the name comes from the Afrikaans word 'wyd' meaning wide."
-        ],
-        parks: ["Etosha National Park", "Waterberg Plateau Park"]
-    }
-];
-
-// Sample park data
-const parks = [
-    {
-        id: 1,
-        name: "Etosha National Park",
-        description: "One of Africa's great wildlife parks, centered around the vast Etosha salt pan. Home to hundreds of species of mammals, birds and reptiles.",
-        imageUrl: "https://images.unsplash.com/photo-1528732533941-ffd7083d5dfe?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        location: "Northern Namibia",
-        hours: "Sunrise to Sunset",
-        contact: "+264 67 229 800",
-        size: "22,270 km²",
-        animals: ["Lion", "Elephant", "Giraffe", "Zebra", "Cheetah", "Rhino"]
-    },
-    {
-        id: 2,
-        name: "Namib-Naukluft National Park",
-        description: "One of Africa's largest parks, encompassing part of the Namib Desert and the Naukluft mountain range. Famous for Sossusvlei's towering red sand dunes.",
-        imageUrl: "https://images.unsplash.com/photo-1551176601-c55f81516ba9?q=80&w=915&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        location: "Western Namibia",
-        hours: "6:00 AM - 6:30 PM",
-        contact: "+264 63 293 436",
-        size: "49,768 km²",
-        animals: ["Oryx", "Springbok", "Ostrich", "Hyena", "Zebra"]
-    },
-    {
-        id: 3,
-        name: "Skeleton Coast National Park",
-        description: "Named for the whale and seal bones that once littered the shore from the whaling industry, and the hundreds of shipwrecks caused by the fog and rough seas.",
-        imageUrl: "https://images.unsplash.com/photo-1734246954912-6eaf197506e5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        location: "Northwestern Namibia",
-        hours: "8:00 AM - 5:00 PM",
-        contact: "+264 64 403 100",
-        size: "16,390 km²",
-        animals: ["Desert Elephant", "Brown Hyena", "Jackal", "Seal", "Flamingo"]
-    },
-    {
-        id: 4,
-        name: "Waterberg Plateau Park",
-        description: "The Waterberg Plateau is a particularly prominent location, elevating high above the plains of the Kalahari of Eastern Namibia.",
-        imageUrl: "https://plus.unsplash.com/premium_photo-1661838209721-de1253e99d74?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        location: "Eastern Namibia",
-        hours: "8:00 AM - 6:00 PM",
-        contact: "+264 67 306 000",
-        size: "405 km²",
-        animals: ["Rhino", "Buffalo", "Roan Antelope", "Sable Antelope", "Leopard"]
-    },
-    {
-        id: 5,
-        name: "Fish River Canyon Park",
-        description: "Fish River Canyon is the second largest canyon in the world and the largest in Africa, as well as the second most visited tourist attraction in Namibia.",
-        imageUrl: "https://images.unsplash.com/photo-1595961663766-aa3f1f2122fa?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        location: "Southern Namibia",
-        hours: "7:30 AM - 4:00 PM",
-        contact: "+264 63 283 700",
-        size: "5,900 km²",
-        animals: ["Mountain Zebra", "Kudu", "Klipspringer", "Baboon", "Leopard"]
-    }
-];
-
 // App State
 let currentTheme = 'light';
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+let animals = [];
+let parks = [];
 
 // DOM Elements
 const pageContent = document.getElementById('page-content');
@@ -209,14 +40,12 @@ const pageTemplates = {
                                 <label for="from-park">From Park:</label>
                                 <select id="from-park">
                                     <option value="">Select a park</option>
-                                    ${parks.map(park => `<option value="${park.name}">${park.name}</option>`).join('')}
                                 </select>
                             </div>
                             <div class="input-field">
                                 <label for="to-park">To Park:</label>
                                 <select id="to-park">
                                     <option value="">Select a park</option>
-                                    ${parks.map(park => `<option value="${park.name}">${park.name}</option>`).join('')}
                                 </select>
                             </div>
                         </div>
@@ -310,14 +139,12 @@ const pageTemplates = {
                                 <label for="planner-from">From Park:</label>
                                 <select id="planner-from">
                                     <option value="">Select a park</option>
-                                    ${parks.map(park => `<option value="${park.name}">${park.name}</option>`).join('')}
                                 </select>
                             </div>
                             <div class="input-field">
                                 <label for="planner-to">To Park:</label>
                                 <select id="planner-to">
                                     <option value="">Select a park</option>
-                                    ${parks.map(park => `<option value="${park.name}">${park.name}</option>`).join('')}
                                 </select>
                             </div>
                         </div>
@@ -364,11 +191,39 @@ const pageTemplates = {
     `
 };
 
+// Load JSON data
+async function loadData() {
+    try {
+        const response = await fetch('src/js/data.json');
+        const data = await response.json();
+        animals = data.animals;
+        parks = data.parks;
+        return true;
+    } catch (error) {
+        console.error('Error loading data:', error);
+        return false;
+    }
+}
+
 // Initialize the application
-function initApp() {
-    // Load home page by default
-    navigateToPage('home');
-    setupEventListeners();
+async function initApp() {
+    // Load data first
+    const dataLoaded = await loadData();
+
+    if (dataLoaded) {
+        // Load home page by default
+        navigateToPage('home');
+        setupEventListeners();
+    } else {
+        pageContent.innerHTML = `
+            <div class="container">
+                <div class="section-title">
+                    <h2>Error Loading Data</h2>
+                </div>
+                <p>Could not load the animal and park data. Please try again later.</p>
+            </div>
+        `;
+    }
 }
 
 // Navigate to page
@@ -389,6 +244,7 @@ function navigateToPage(pageId) {
         case 'home':
             renderFeaturedAnimals();
             setupDistanceCalculator();
+            fillParkSelectors();
             break;
         case 'animals':
             renderAllAnimals();
@@ -401,11 +257,39 @@ function navigateToPage(pageId) {
             break;
         case 'planner':
             setupPlanner();
+            fillParkSelectors();
             break;
         case 'favorites':
             renderFavorites();
             break;
     }
+}
+
+// Fill park selectors with options
+function fillParkSelectors() {
+    const parkSelectors = [
+        document.getElementById('from-park'),
+        document.getElementById('to-park'),
+        document.getElementById('planner-from'),
+        document.getElementById('planner-to')
+    ];
+
+    parkSelectors.forEach(selector => {
+        if (selector) {
+            // Clear existing options except the first one
+            while (selector.options.length > 1) {
+                selector.remove(1);
+            }
+
+            // Add park options
+            parks.forEach(park => {
+                const option = document.createElement('option');
+                option.value = park.name;
+                option.textContent = park.name;
+                selector.appendChild(option);
+            });
+        }
+    });
 }
 
 // Render featured animals on home page
@@ -481,7 +365,7 @@ function renderFavorites() {
         container.style.display = 'grid';
         container.innerHTML = favorites.map(id => {
             const animal = animals.find(a => a.id === id);
-            return createAnimalCard(animal);
+            return animal ? createAnimalCard(animal) : '';
         }).join('');
     }
 }
@@ -574,6 +458,13 @@ function toggleFavorite(animalId) {
     }
     if (document.getElementById('favorites-grid')) {
         renderFavorites();
+    }
+
+    // Update detail page favorite button if open
+    const addFavoriteBtn = document.getElementById('add-favorite-btn');
+    if (addFavoriteBtn) {
+        const isFavorite = favorites.includes(animalId);
+        addFavoriteBtn.innerHTML = `<i class="${isFavorite ? 'fas' : 'far'} fa-heart"></i> ${isFavorite ? 'Remove from' : 'Add to'} Favorites`;
     }
 }
 
