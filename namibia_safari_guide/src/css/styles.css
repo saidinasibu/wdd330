@@ -566,9 +566,24 @@ footer {
     color: var(--secondary);
 }
 
-.animal-info .description {
+.description-container {
+    position: relative;
     margin-bottom: 2rem;
+}
+
+.animal-info .description {
     line-height: 1.8;
+    white-space: pre-line;
+}
+
+.wiki-loading {
+    display: none;
+    background-color: rgba(22, 160, 133, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    text-align: center;
 }
 
 .fun-facts {

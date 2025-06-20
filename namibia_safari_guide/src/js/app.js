@@ -98,7 +98,13 @@ const pageTemplates = {
                     <div class="animal-info">
                         <h2 id="detail-name"></h2>
                         <div class="local-names" id="detail-local-names"></div>
-                        <p class="description" id="detail-description"></p>
+                        
+                        <div class="description-container">
+                            <div id="wiki-loading" class="wiki-loading">
+                                <i class="fas fa-spinner fa-spin"></i> Loading description from Wikipedia...
+                            </div>
+                            <p class="description" id="detail-description"></p>
+                        </div>
                         
                         <div class="fun-facts">
                             <h3><i class="fas fa-lightbulb"></i> Interesting Facts</h3>
@@ -202,6 +208,36 @@ async function loadData() {
     } catch (error) {
         console.error('Error loading data:', error);
         return false;
+    }
+}
+
+// Get Wikipedia description
+async function getWikipediaDescription(animalName) {
+    try {
+        // Show loading indicator
+        const wikiLoading = document.getElementById('wiki-loading');
+        if (wikiLoading) wikiLoading.style.display = 'block';
+
+        // Make API request
+        const response = await fetch(
+            `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&explaintext&format=json&titles=${encodeURIComponent(animalName)}&origin=*`
+        );
+
+        const data = await response.json();
+        const pages = data.query.pages;
+        const pageId = Object.keys(pages)[0];
+
+        if (pageId === '-1' || !pages[pageId].extract) {
+            throw new Error('No Wikipedia article found');
+        }
+
+        return pages[pageId].extract;
+    } catch (error) {
+        console.error('Error fetching Wikipedia data:', error);
+        return null;
+    } finally {
+        const wikiLoading = document.getElementById('wiki-loading');
+        if (wikiLoading) wikiLoading.style.display = 'none';
     }
 }
 
@@ -396,14 +432,14 @@ function createAnimalCard(animal) {
 }
 
 // Show animal details
-function showAnimalDetail(animalId) {
+async function showAnimalDetail(animalId) {
     const animal = animals.find(a => a.id === animalId);
     if (!animal) return;
 
     navigateToPage('animal-detail');
 
     // Update detail page after a small delay to allow DOM update
-    setTimeout(() => {
+    setTimeout(async () => {
         document.getElementById('detail-name').textContent = animal.name;
 
         const localNames = Object.entries(animal.localNames)
@@ -411,12 +447,29 @@ function showAnimalDetail(animalId) {
             .join(', ');
         document.getElementById('detail-local-names').innerHTML = localNames;
 
-        document.getElementById('detail-description').textContent = animal.description;
         document.getElementById('detail-image').src = animal.imageUrl;
         document.getElementById('detail-image').alt = animal.name;
 
         const factsList = document.getElementById('detail-facts');
         factsList.innerHTML = animal.funFacts.map(fact => `<li>${fact}</li>`).join('');
+
+        // Set default description
+        const descriptionElement = document.getElementById('detail-description');
+        descriptionElement.textContent = animal.description;
+
+        // Try to get Wikipedia description
+        try {
+            const wikiDescription = await getWikipediaDescription(animal.name);
+            if (wikiDescription) {
+                descriptionElement.textContent = wikiDescription;
+            } else {
+                descriptionElement.textContent = animal.description +
+                    "\n\n[Wikipedia description not available. Showing default description.]";
+            }
+        } catch (error) {
+            descriptionElement.textContent = animal.description +
+                "\n\n[Error loading Wikipedia description. Showing default description.]";
+        }
 
         // Update favorite button
         const isFavorite = favorites.includes(animal.id);
