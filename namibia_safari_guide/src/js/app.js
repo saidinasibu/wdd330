@@ -4,6 +4,10 @@ let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 let animals = [];
 let parks = [];
 
+// Google Maps variables
+let homeMap, homeDirectionsService, homeDirectionsRenderer;
+let plannerMap, plannerDirectionsService, plannerDirectionsRenderer;
+
 // DOM Elements
 const pageContent = document.getElementById('page-content');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -14,10 +18,6 @@ const navMenu = document.getElementById('nav-menu');
 // Page templates
 const pageTemplates = {
     home: `               
-                </div>
-            </div>
-        </div>
-        
         <div class="container">
             <div class="section-title">
                 <h2>Featured Animals</h2>
@@ -54,7 +54,7 @@ const pageTemplates = {
                     
                     <div id="map-container" class="map-container"></div>
                     
-                    <div class="results" id="results" style="display: none;">
+                    <div class="results" id="results">
                         <h3>Travel Information</h3>
                         <div class="result-item">
                             <i class="fas fa-road"></i>
@@ -159,7 +159,7 @@ const pageTemplates = {
                     
                     <div id="planner-map" class="map-container"></div>
                     
-                    <div class="results" id="planner-results" style="display: none;">
+                    <div class="results" id="planner-results">
                         <h3>Travel Information</h3>
                         <div class="result-item">
                             <i class="fas fa-road"></i>
@@ -196,6 +196,38 @@ const pageTemplates = {
         </div>
     `
 };
+
+// Initialize Google Map
+function initMap(containerId, page) {
+    const mapOptions = {
+        center: { lat: -22.5609, lng: 17.0658 }, // Windhoek, Namibia
+        zoom: 6,
+        mapId: "DEMO_MAP_ID"
+    };
+
+    const map = new google.maps.Map(document.getElementById(containerId), mapOptions);
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer({
+        suppressMarkers: true,
+        polylineOptions: {
+            strokeColor: "#e67e22",
+            strokeOpacity: 0.8,
+            strokeWeight: 4
+        }
+    });
+
+    directionsRenderer.setMap(map);
+
+    if (page === 'home') {
+        homeMap = map;
+        homeDirectionsService = directionsService;
+        homeDirectionsRenderer = directionsRenderer;
+    } else {
+        plannerMap = map;
+        plannerDirectionsService = directionsService;
+        plannerDirectionsRenderer = directionsRenderer;
+    }
+}
 
 // Load JSON data
 async function loadData() {
@@ -281,6 +313,9 @@ function navigateToPage(pageId) {
             renderFeaturedAnimals();
             setupDistanceCalculator();
             fillParkSelectors();
+            if (typeof google !== 'undefined') {
+                initMap('map-container', 'home');
+            }
             break;
         case 'animals':
             renderAllAnimals();
@@ -294,6 +329,9 @@ function navigateToPage(pageId) {
         case 'planner':
             setupPlanner();
             fillParkSelectors();
+            if (typeof google !== 'undefined') {
+                initMap('planner-map', 'planner');
+            }
             break;
         case 'favorites':
             renderFavorites();
@@ -557,22 +595,104 @@ function calculateDistance(fromPark, toPark, page) {
 
     if (!park1 || !park2) return;
 
-    // In a real app, you would use the Google Maps API here
-    // For demo purposes, we'll simulate results
-    const distance = Math.floor(Math.random() * 800) + 200;
-    const duration = Math.floor(distance / 60) + 1;
+    // Show the map container
+    const mapContainer = page === 'home' ?
+        document.getElementById('map-container') :
+        document.getElementById('planner-map');
 
-    if (page === 'home') {
-        document.getElementById('distance-result').textContent = `${distance} km`;
-        document.getElementById('duration-result').textContent = `${duration} hours by car`;
-        document.getElementById('route-result').textContent = `B1 Highway via Windhoek`;
-        document.getElementById('results').style.display = 'block';
-    } else if (page === 'planner') {
-        document.getElementById('planner-distance').textContent = `${distance} km`;
-        document.getElementById('planner-duration').textContent = `${duration} hours by car`;
-        document.getElementById('planner-route').textContent = `B1 Highway via Windhoek`;
-        document.getElementById('planner-results').style.display = 'block';
+    mapContainer.style.display = 'block';
+
+    // Initialize the map if not already
+    if (page === 'home' && !homeMap) {
+        initMap('map-container', 'home');
+    } else if (page === 'planner' && !plannerMap) {
+        initMap('planner-map', 'planner');
     }
+
+    // Use Google Maps Distance Matrix API
+    const service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix({
+        origins: [park1.name],
+        destinations: [park2.name],
+        travelMode: 'DRIVING',
+        unitSystem: google.maps.UnitSystem.METRIC,
+    }, (response, status) => {
+        if (status === 'OK') {
+            const result = response.rows[0].elements[0];
+            if (result.status === 'OK') {
+                const distance = result.distance.text;
+                const duration = result.duration.text;
+
+                // Update UI
+                if (page === 'home') {
+                    document.getElementById('distance-result').textContent = distance;
+                    document.getElementById('duration-result').textContent = duration;
+                    document.getElementById('results').style.display = 'block';
+                } else {
+                    document.getElementById('planner-distance').textContent = distance;
+                    document.getElementById('planner-duration').textContent = duration;
+                    document.getElementById('planner-results').style.display = 'block';
+                }
+
+                // Show route on map
+                calculateRoute(park1.name, park2.name, page);
+            } else {
+                alert('Error: ' + result.status);
+            }
+        } else {
+            alert('Error: ' + status);
+        }
+    });
+}
+
+// Calculate and display route on map
+function calculateRoute(origin, destination, page) {
+    const request = {
+        origin,
+        destination,
+        travelMode: 'DRIVING',
+        provideRouteAlternatives: false
+    };
+
+    const directionsService = page === 'home' ?
+        homeDirectionsService : plannerDirectionsService;
+
+    const directionsRenderer = page === 'home' ?
+        homeDirectionsRenderer : plannerDirectionsRenderer;
+
+    directionsService.route(request, (result, status) => {
+        if (status === 'OK') {
+            directionsRenderer.setDirections(result);
+
+            // Add custom markers
+            addCustomMarker(result.routes[0].legs[0].start_location, 'Start', page);
+            addCustomMarker(result.routes[0].legs[0].end_location, 'End', page);
+        }
+    });
+}
+
+// Add custom markers
+function addCustomMarker(position, label, page) {
+    const map = page === 'home' ? homeMap : plannerMap;
+
+    new google.maps.Marker({
+        position,
+        map,
+        label: {
+            text: label,
+            color: "#fff",
+            fontSize: "14px",
+            fontWeight: "bold"
+        },
+        icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 10,
+            fillColor: page === 'home' ? "#e67e22" : "#16a085",
+            fillOpacity: 1,
+            strokeColor: "#fff",
+            strokeWeight: 2
+        }
+    });
 }
 
 // Toggle theme

@@ -401,6 +401,12 @@ input {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--shadow);
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    font-style: italic;
 }
 
 .results {
@@ -408,6 +414,20 @@ input {
     padding: 1.5rem;
     border-radius: 8px;
     margin-top: 1.5rem;
+    animation: fadeIn 0.5s ease;
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .result-item {
@@ -618,6 +638,7 @@ footer {
 #favorites-message {
     text-align: center;
     margin-bottom: 2rem;
+    display: none;
 }
 
 /* Responsive Styles */

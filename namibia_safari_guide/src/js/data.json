@@ -137,6 +137,10 @@
             "hours": "Sunrise to Sunset",
             "contact": "+264 67 229 800",
             "size": "22,270 km²",
+            "coords": {
+                "lat": -18.9253,
+                "lng": 16.4829
+            },
             "animals": [
                 "Lion",
                 "Elephant",
@@ -155,6 +159,10 @@
             "hours": "6:00 AM - 6:30 PM",
             "contact": "+264 63 293 436",
             "size": "49,768 km²",
+            "coords": {
+                "lat": -24.5597,
+                "lng": 15.7931
+            },
             "animals": [
                 "Oryx",
                 "Springbok",
@@ -172,6 +180,10 @@
             "hours": "8:00 AM - 5:00 PM",
             "contact": "+264 64 403 100",
             "size": "16,390 km²",
+            "coords": {
+                "lat": -20.3700,
+                "lng": 13.1680
+            },
             "animals": [
                 "Desert Elephant",
                 "Brown Hyena",
@@ -189,6 +201,10 @@
             "hours": "8:00 AM - 6:00 PM",
             "contact": "+264 67 306 000",
             "size": "405 km²",
+            "coords": {
+                "lat": -20.4000,
+                "lng": 17.2300
+            },
             "animals": [
                 "Rhino",
                 "Buffalo",
@@ -206,6 +222,10 @@
             "hours": "7:30 AM - 4:00 PM",
             "contact": "+264 63 283 700",
             "size": "5,900 km²",
+            "coords": {
+                "lat": -27.5978,
+                "lng": 17.6019
+            },
             "animals": [
                 "Mountain Zebra",
                 "Kudu",
