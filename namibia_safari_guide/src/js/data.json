@@ -30,7 +30,7 @@
                 "Nama": "ǂGûb"
             },
             "description": "African elephants are the largest land animals on Earth. They are slightly larger than their Asian cousins and can be identified by their larger ears that look somewhat like the continent of Africa.",
-            "imageUrl": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+            "imageUrl": "images/elephant.webp",
             "funFacts": [
                 "Elephants can consume up to 300 pounds of food in a single day.",
                 "An elephant's trunk has about 150,000 muscle units.",
@@ -51,7 +51,7 @@
                 "Nama": "ǀNūǃkhub"
             },
             "description": "The giraffe is an African artiodactyl mammal, the tallest living terrestrial animal and the largest ruminant. It is traditionally considered to be one species with nine subspecies.",
-            "imageUrl": "https://images.unsplash.com/photo-1692095296972-bfb7d7f6625e?q=80&w=327&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "imageUrl": "images/giraffe.webp",
             "funFacts": [
                 "Giraffes are the tallest mammals on Earth.",
                 "A giraffe's neck is too short to reach the ground, so they must spread their front legs to drink water.",
@@ -72,7 +72,7 @@
                 "Nama": "ǃGaiseb"
             },
             "description": "Zebras are African equines with distinctive black-and-white striped coats. There are three living species: the Grévy's zebra, plains zebra, and the mountain zebra.",
-            "imageUrl": "https://plus.unsplash.com/premium_photo-1661918416083-518059a355c8?q=80&w=389&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "imageUrl": "images/zebra.webp",
             "funFacts": [
                 "Each zebra has a unique stripe pattern—like human fingerprints.",
                 "Zebras can run up to 65 km/h (40 mph) to escape predators.",
@@ -93,7 +93,7 @@
                 "Nama": "ǃNūs"
             },
             "description": "The cheetah is a large cat native to Africa and central Iran. It is the fastest land animal, capable of running at 80 to 128 km/h, and as such has several adaptations for speed.",
-            "imageUrl": "https://images.unsplash.com/photo-1559537196-811a53462ffc?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "imageUrl": "images/cheetah.webp",
             "funFacts": [
                 "Cheetahs can accelerate from 0 to 100 km/h in just 3 seconds.",
                 "Cheetahs don't roar like lions—they purr like house cats.",
@@ -114,7 +114,7 @@
                 "Nama": "ǀGûb"
             },
             "description": "A rhinoceros, commonly abbreviated to rhino, is a member of any of the five extant species of odd-toed ungulates in the family Rhinocerotidae.",
-            "imageUrl": "https://plus.unsplash.com/premium_photo-1661849675370-3852cfa61f1a?q=80&w=386&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "imageUrl": "images/rhino.webp",
             "funFacts": [
                 "Rhinos have poor eyesight but excellent senses of hearing and smell.",
                 "A group of rhinos is called a 'crash'.",
