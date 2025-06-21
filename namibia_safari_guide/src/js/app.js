@@ -585,6 +585,12 @@ function setupPlanner() {
 
 // Calculate distance between parks
 function calculateDistance(fromPark, toPark, page) {
+    if (typeof google === 'undefined') {
+        alert('Google Maps API is not loaded. Please try again later.');
+        showMapError();
+        return;
+    }
+
     if (!fromPark || !toPark) {
         alert('Please select both parks');
         return;
@@ -627,10 +633,12 @@ function calculateDistance(fromPark, toPark, page) {
                 if (page === 'home') {
                     document.getElementById('distance-result').textContent = distance;
                     document.getElementById('duration-result').textContent = duration;
+                    document.getElementById('route-result').textContent = 'Driving via B1';
                     document.getElementById('results').style.display = 'block';
                 } else {
                     document.getElementById('planner-distance').textContent = distance;
                     document.getElementById('planner-duration').textContent = duration;
+                    document.getElementById('planner-route').textContent = 'Driving via B1';
                     document.getElementById('planner-results').style.display = 'block';
                 }
 
@@ -692,6 +700,23 @@ function addCustomMarker(position, label, page) {
             strokeColor: "#fff",
             strokeWeight: 2
         }
+    });
+}
+
+// Show map error
+function showMapError() {
+    const mapContainers = document.querySelectorAll('.map-container');
+    mapContainers.forEach(container => {
+        container.innerHTML = `
+      <div class="map-error">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h4>Google Maps Error</h4>
+        <p>Failed to load Google Maps. Please check your connection and try again.</p>
+        <button class="btn btn-secondary" onclick="location.reload()">
+          <i class="fas fa-sync-alt"></i> Reload Page
+        </button>
+      </div>
+    `;
     });
 }
 
@@ -769,4 +794,9 @@ if (savedTheme === 'dark') {
 }
 
 // Initialize the app when DOM is loaded
-document.addEventListener('DOMContentLoaded', initApp);
+if (typeof google !== 'undefined') {
+    initApp();
+} else {
+    console.error('Google Maps API failed to load');
+    showMapError();
+}

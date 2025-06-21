@@ -8,8 +8,16 @@
 
     <link rel="stylesheet" href="src/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwarX2EEcMjx0W06_L6paWqSFE5Y3n4Dw&libraries=places"></script>
+    <script>
+        function initGoogleMaps() {
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAwarX2EEcMjx0W06_L6paWqSFE5Y3n4Dw&libraries=places&callback=initApp`;
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        }
+        window.addEventListener('DOMContentLoaded', initGoogleMaps);
+    </script>
 </head>
 
 <body>

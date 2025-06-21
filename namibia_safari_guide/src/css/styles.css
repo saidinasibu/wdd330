@@ -641,6 +641,34 @@ footer {
     display: none;
 }
 
+/* Map Error Styles */
+.map-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    height: 100%;
+}
+
+.map-error i {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.map-error h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.map-error p {
+    margin-bottom: 1.5rem;
+    color: var(--gray);
+}
+
 /* Responsive Styles */
 @media (max-width: 992px) {
     .detail-header {
@@ -683,6 +711,19 @@ footer {
 
     .park-cards {
         grid-template-columns: 1fr;
+    }
+
+    /* Responsive adjustments for map error */
+    .map-error {
+        padding: 1rem;
+    }
+
+    .map-error i {
+        font-size: 2rem;
+    }
+
+    .map-error h4 {
+        font-size: 1.2rem;
     }
 }
 
